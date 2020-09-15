@@ -1,6 +1,6 @@
 ---
 title: "p8105_hw1_sp3804"
-author: "Shannon Park (sp3804)"
+author: "Shannon (Seonyoung Park) (sp3804)"
 date: "9/15/2020"
 output: github_document
 ---
@@ -41,10 +41,15 @@ as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec)) 
 as.numeric(pull(prob1_df, factor_vec)) 
 ```
+```{r}
+as.numeric(pull(prob1_df, samp_gt_0))*pull(prob1_df,samp)
+```
+
+
 ## Problem 2
 
 ```{r}
-
+data("penguins", package = "palmerpenguins")
 
 ```
 
