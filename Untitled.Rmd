@@ -1,0 +1,20 @@
+---
+title: "p8105_hw1_sp3804"
+author: "Shannon Park (sp3804)"
+date: "9/15/2020"
+output: github_document
+---
+
+This is my solution to HW1
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+## Problem 1
+
+Creat a data frame with the specified elements.
+
+```{r}
+
+```
