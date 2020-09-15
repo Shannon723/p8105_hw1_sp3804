@@ -24,3 +24,27 @@ prob1_df =
   factor_vec = factor(c("low","low","low","mod","mod","mod","high","high","high","high"))
 )
 ```
+
+Take the mean of each variable in my data frame.
+
+```{r}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_gt_0)) #mean = 0.6 (?)
+mean(pull(prob1_df, char_vec)) #not possible (x numeric)
+mean(pull(prob1_df, factor_vec)) #not possible (x numeric)
+```
+I can take the mean of number but not character or factor.
+
+```{r}
+as.numeric(pull(prob1_df, samp))
+as.numeric(pull(prob1_df, samp_gt_0)) 
+as.numeric(pull(prob1_df, char_vec)) 
+as.numeric(pull(prob1_df, factor_vec)) 
+```
+## Problem 2
+
+```{r}
+
+
+```
+
