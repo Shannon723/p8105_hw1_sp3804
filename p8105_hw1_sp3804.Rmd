@@ -71,7 +71,7 @@ mean(pull(penguins, flipper_length_mm), na.rm=TRUE)
 
 #scatterplot
 
-ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species))+geom_point()
+ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species))+geom_point()+ggtitle("<Penguins' flipper length vs. bill length>")
 ggsave("flipper vs.bill_plot.pdf", height =4, width=6)
 
 
