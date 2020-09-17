@@ -13,7 +13,7 @@ library(tidyverse)
 
 ## Problem 1
 
-Creat a data frame with the specified elements.
+### Creat a data frame with the specified elements.
 
 ```{r}
 prob1_df = 
@@ -25,16 +25,19 @@ prob1_df =
 )
 ```
 
-Take the mean of each variable in my data frame.
-
+### Take the mean of each variable in my data frame.
+-result: I can take the mean of number but not character nor factor.
 ```{r}
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_gt_0)) #mean = 0.6 (?)
 mean(pull(prob1_df, char_vec)) #not possible (x numeric)
 mean(pull(prob1_df, factor_vec)) #not possible (x numeric)
 ```
-I can take the mean of number but not character or factor.
 
+
+### Let's use as.numeric function
+- result: not possible for character nor factor
+- Does this help explain what happens when you try to take the mean?: Yes. Since character and factor cannot be changed as numeric value, we cannot calculate the mean of them. 
 ```{r}
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0)) 
@@ -42,14 +45,35 @@ as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec)) 
 ```
 ```{r}
-as.numeric(pull(prob1_df, samp_gt_0))*pull(prob1_df,samp)
+#1
+as.numeric(pull(prob1_df, samp_gt_0))*pull(prob1_df,samp) 
+#2
+as.factor(pull(prob1_df, samp_gt_0))*pull(prob1_df,samp)
+#3
+as.numeric(as.factor(pull(prob1_df, samp_gt_0)))*pull(prob1_df,samp)
 ```
 
 
 ## Problem 2
 
 ```{r}
+library(palmerpenguins)
 data("penguins", package = "palmerpenguins")
+penguins
+nrow(penguins) #344 row
+ncol(penguins) #8 column
+
+#another way; glimpse
+glimpse(penguins)
+
+#mean of flipper_length_mm; except for NA, mean of flipper_length_mm is 200.9 (mm)
+mean(pull(penguins, flipper_length_mm), na.rm=TRUE) 
+
+#scatterplot
+
+ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species))+geom_point()
+ggsave("flipper vs.bill_plot.pdf", height =4, width=6)
+
 
 ```
 
